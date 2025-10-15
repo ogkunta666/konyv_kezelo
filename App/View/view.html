@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="veiw.css">
+  <title>Könyvkatalógus</title>
+</head>
+<body>
+  <h1>Könyvkatalógus</h1>
+
+  <form id="book-form">
+    <input type="text" id="title" placeholder="Cím" required>
+    <input type="text" id="author" placeholder="Szerző" required>
+    <input type="number" id="year" placeholder="Év" required>
+    <input type="text" id="isbn" placeholder="ISBN" required>
+    <button type="submit">Hozzáadás</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cím</th>
+        <th>Szerző</th>
+        <th>Év</th>
+        <th>ISBN</th>
+        <th>Művelet</th>
+      </tr>
+    </thead>
+    <tbody id="book-table-body">
+      <!-- JS tölti be -->
+    </tbody>
+  </table>
+</body>
+</html>
