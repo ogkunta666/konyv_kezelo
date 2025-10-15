@@ -11,7 +11,6 @@ let nextId = 1;
 
 // Könyv hozzáadása
 function addBook(event: Event): void {
-  event.preventDefault();
 
   const titleInput = document.getElementById("title") as HTMLInputElement;
   const authorInput = document.getElementById("author") as HTMLInputElement;
