@@ -37,3 +37,27 @@
 
     Ezt kovetoen pedig a C(reate) vagyis a konyv hozzaadasa kovetkezik ami atveszi a cimet a irot a kiadasi evet es az isbnt majd ezt hozzaadja az adatbazishoz mySQL paranccsal sql injection elleni vedelemmel.
 
+```php
+    public function addBook($title, $author, $year, $isbn)
+        {
+            $stmt = $this->pdo->prepare("INSERT INTO books (title, author, year, isbn) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$title, $author, $year, $isbn]);
+        }
+```
+
+
+    Ez utan jon a getBooks ami ID szerint csokkeno sorrendbe kiirja a konyveket es amig van mit kiirni addig hozza is adja a viewhoz.
+
+```php
+    public function getBooks()
+    {
+        $stmt = $this->pdo->query("SELECT * FROM books ORDER BY id DESC");
+        $books = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $books[] = new Book($row['id'], $row['title'], $row['author'], $row['year'], $row['isbn']);
+        }
+
+        return $books;
+    }
+```
