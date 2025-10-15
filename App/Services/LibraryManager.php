@@ -18,6 +18,19 @@ class LibraryManager
         $stmt = $this->pdo->prepare("INSERT INTO books (title, author, year, isbn) VALUES (?, ?, ?, ?)");
         $stmt->execute([$title, $author, $year, $isbn]);
     }
-   
+
+        public function getBooks()
+    {
+        $stmt = $this->pdo->query("SELECT * FROM books ORDER BY id DESC");
+        $books = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $books[] = new Book($row['id'], $row['title'], $row['author'], $row['year'], $row['isbn']);
+        }
+
+        return $books;
+    }
+
 }
+
 
