@@ -37,8 +37,13 @@ class LibraryManager
         $stmt->execute([$id]);
     }
 
+      public function clearBooks()
+    {
+        $this->pdo->exec("TRUNCATE TABLE books");
+    }
 
 }
+
 
 
 
