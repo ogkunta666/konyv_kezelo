@@ -20,4 +20,20 @@
 
     A __construct függvény pedig ezek alapján az éppen átmenő adatbázis elem szerint épíiti össze a könyvet.
 
-    
+
+
+# Controller - Marki Zoltan Akos
+
+
+    A controller vagyis a LibraryManager a kod agyat tartalmazza az CR(U)D muveletekkel (az update hianyzik), itt is talalhato egy construct ami a pdo kapcsolatot epiti fel.
+
+```php
+
+   public function __construct($pdo)
+    {
+        $this->pdo = $pdo;
+    }
+```
+
+    Ezt kovetoen pedig a C(reate) vagyis a konyv hozzaadasa kovetkezik ami atveszi a cimet a irot a kiadasi evet es az isbnt majd ezt hozzaadja az adatbazishoz mySQL paranccsal sql injection elleni vedelemmel.
+
