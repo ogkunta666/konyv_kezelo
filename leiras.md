@@ -61,3 +61,26 @@
         return $books;
     }
 ```
+
+    Most kovetkezik a "veszely" zona ahol egy nem megfelelo kattintas es torlod az egesz adatbazist. deleteBook - egy adott konyvet torol csak ID alapjan mySQL paranccsal.
+
+```php
+ public function deleteBook($id)
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM books WHERE id = ?");
+        $stmt->execute([$id]);
+    }
+```
+
+    A clearBooks pedig az egesz adatbazist torli.
+
+```php
+  public function clearBooks()
+    {
+        $this->pdo->exec("TRUNCATE TABLE books");
+    }
+```
+
+
+
+# View - Máté Bálint Ákos
