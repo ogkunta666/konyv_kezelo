@@ -86,7 +86,7 @@
 # View - Máté Bálint Ákos
     A view részben történt egy html, css, és egy typescript kód megírása amit végül átalakitottam js-é hogy lefussom normálisan.
 
-###a htmlel kezdek:
+### a htmlel kezdek:
     
 ```html
     <head>
@@ -112,7 +112,7 @@
   </form>
 ```
 
-itt létrehoztam egy formot, mindegyik mezőnek adtam egy id-t amit később felhasználtam a typescriptbe, egy placeholdert, és egy required tulajdonságot amit azt csinálja hogy a mezőt kötelező kitölteni.
+    itt létrehoztam egy formot, mindegyik mezőnek adtam egy id-t amit később felhasználtam a typescriptbe, egy placeholdert, és egy required tulajdonságot amit azt csinálja hogy a mezőt kötelező kitölteni.
 
 
 ```html
@@ -133,7 +133,7 @@ itt létrehoztam egy formot, mindegyik mezőnek adtam egy id-t amit később fel
   </table>
 ```
 
-itt létrehoztam egy táblát, ahol a thead a fejlécet jelöli ami érthetőbbé teszi a felhasználónak a dolgokat, a tbody-ba pedig minden egyes hozzáadott könyvet fogjuk tudni majd beágyazni a typescriptbe.
+    itt létrehoztam egy táblát, ahol a thead a fejlécet jelöli ami érthetőbbé teszi a felhasználónak a dolgokat, a tbody-ba pedig minden egyes hozzáadott könyvet fogjuk tudni majd beágyazni a typescriptbe.
 
 
 
@@ -141,9 +141,9 @@ itt létrehoztam egy táblát, ahol a thead a fejlécet jelöli ami érthetőbb�
 <script src="view.js"></script>
 ```
 
-hozzáadtam a view.js-t, nem a ts-t mivel átkell alakítani a typescript kódot javascript kóddá a tsc view.ts parancsal a cmd-be.
+    hozzáadtam a view.js-t, nem a ts-t mivel átkell alakítani a typescript kódot javascript kóddá a tsc view.ts parancsal a cmd-be.
 
-##css:
+### css:
 
 ```css
 body {
@@ -152,14 +152,14 @@ body {
   margin: 40px;
 }
 ```
-világosszürke háttérszínt adtam az oldalnak, és 40px margót raktam az oldak szélei körül
+    világosszürke háttérszínt adtam az oldalnak, és 40px margót raktam az oldak szélei körül
 
 ```css
 h1 {
   text-align: center;
 }
 ```
-a főcímet középre igazítottam
+    a főcímet középre igazítottam
 
 ```css
 form {
@@ -168,7 +168,7 @@ form {
   gap: 10px;
 }
 ```
-10px tavolsag lesz az űrlap elemei között, 20px tavolsag lesz az űrlap alja utan
+    10px tavolsag lesz az űrlap elemei között, 20px tavolsag lesz az űrlap alja utan
 
 ```css
 input, button {
@@ -176,7 +176,7 @@ input, button {
   font-size: 14px;
 }
 ```
-hogy ne legyen mar tul szűk 8px belso margot adtam hozzá, és egy 14pxes betumeretet 
+    hogy ne legyen mar tul szűk 8px belso margot adtam hozzá, és egy 14pxes betumeretet 
 
 ```css
 table {
@@ -184,7 +184,7 @@ table {
   border-collapse: collapse;
 }
 ```
-a tablazat foglalja el az egesz oldalt, es nem lesz res a cellak kozott
+    a tablazat foglalja el az egesz oldalt, es nem lesz res a cellak kozott
 
 ```css
 th, td {
@@ -193,7 +193,7 @@ th, td {
   text-align: left;
 }
 ```
-adtam egy kicsi keretet minden cellahoz, cellak tartalma balra van igazitva, es egy 8pxes margo
+    adtam egy kicsi keretet minden cellahoz, cellak tartalma balra van igazitva, es egy 8pxes margo
 
 ```css
 button.delete {
@@ -203,9 +203,9 @@ button.delete {
   cursor: pointer;
 }
 ```
-a delete gombnak adtam egy piros hattert, feher szovegszin, es egerkurzor amint rajtavagyunk hogy jelezzem hogy kattinthato
+    a delete gombnak adtam egy piros hattert, feher szovegszin, es egerkurzor amint rajtavagyunk hogy jelezzem hogy kattinthato
 
-###ts:
+### ts:
 
 ```ts
 interface Book {
@@ -217,14 +217,14 @@ interface Book {
 }
 ```
 
-itt definialtam a Book interfészt.
+    itt definialtam a Book interfészt.
 
 ```ts
 let books: Book[] = [];
 let nextId = 1;
 ```
-books: üres tomb amibe csak Book tipusu adatok tehetoek
-nextId: kovetkezo konyvhoz kapcsolodo Id, minden uj konyv hozzaadasanal 1el no majd
+    books: üres tomb amibe csak Book tipusu adatok tehetoek
+    nextId: kovetkezo konyvhoz kapcsolodo Id, minden uj konyv hozzaadasanal 1el no majd
 
 ```ts
 function addBook(event: Event): void {
@@ -253,11 +253,11 @@ function addBook(event: Event): void {
 }
 ```
 
-lekerem az input mezoket, es tipusbiztosan HTMLInputElementkent kezeli oket
-uj konyv letrehozasa (newBook) a megadott adatokkal, az evszamot szovegbol atalakitom szamma.
-pushal hozzáadom a könyvet a books tömbhöz
-renderbooksal pedig majd frissitem a tablazatot az uj konyvel
-majd az urlap mezoit kiuritem
+    lekerem az input mezoket, es tipusbiztosan HTMLInputElementkent kezeli oket
+    uj konyv letrehozasa (newBook) a megadott adatokkal, az evszamot szovegbol atalakitom szamma.
+    pushal hozzáadom a könyvet a books tömbhöz
+    renderbooksal pedig majd frissitem a tablazatot az uj konyvel
+    majd az urlap mezoit kiuritem
 
 ```ts
 // Könyv törlése
@@ -266,8 +266,8 @@ function deleteBook(id: number): void {
   renderBooks();
 }
 ```
-a .filter() egy tombmetodus, amely egy uj tombot ad vissza csak azokat az elemeket megtartva amik megfelelnek az adott feltetelnek, ezaltal kilehet torolni azt az id-ű konyvet amire rakattintottunk
-majd ujratoltjuk az oldalt ahol mar kivan torolve a könyv.
+    a .filter() egy tombmetodus, amely egy uj tombot ad vissza csak azokat az elemeket megtartva amik megfelelnek az adott feltetelnek, ezaltal kilehet torolni azt az id-ű konyvet amire rakattintottunk
+    majd ujratoltjuk az oldalt ahol mar kivan torolve a könyv.
 
 ```ts
 // Könyvek megjelenítése
@@ -290,10 +290,10 @@ function renderBooks(): void {
 }
 ```
 
-lekerem a tablazat tbody elemet ahol a konyvek megjelennek
-kiuritem a tablazatot 
-vegigmegyek a konyveken es minden egyes konyvhoz egy uj sort kapcsolok 
-majd a vegen hozzaadom a sort a tablazathoz
+    lekerem a tablazat tbody elemet ahol a konyvek megjelennek
+    kiuritem a tablazatot 
+    vegigmegyek a konyveken es minden egyes konyvhoz egy uj sort kapcsolok 
+    majd a vegen hozzaadom a sort a tablazathoz
 
 ```ts
 window.onload = () => {
@@ -303,7 +303,8 @@ window.onload = () => {
 };
 ```
 
-bevallom chatgpt, mert mar kicsit meg gyult a bajom ezzel, es a filterrel is de ha jol ertelmezem akkor:
-a form lekéri az űrlapot,
-a form.addeventlistener az űrlap beküldéséhez hozzaadja az addbook fuggvenyt esemenykezelokent
-majd inicializalja a renderbooksot bar ures mivel most books tömb kezdetben ures.
+    bevallom chatgpt, mert mar kicsit meg gyult a bajom ezzel, es a filterrel is de ha jol ertelmezem akkor:
+    a form lekéri az űrlapot,
+    a form.addeventlistener az űrlap beküldéséhez hozzaadja az addbook fuggvenyt esemenykezelokent
+    majd inicializalja a renderbooksot bar ures mivel most books tömb kezdetben ures.
+
